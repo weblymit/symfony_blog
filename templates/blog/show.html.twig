@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Show post
+{% endblock %}
+
+{% block body %}
+	<div class="example-wrapper p-20 ">
+		<h1 class="text-green-500 text-3xl">{{ post.title }}</h1>
+		<img src="{{ post.urlImg }}" alt="" class="max-w-sm">
+		<p>Categorie :
+			{{ post.category }}</p>
+		<p>Auteur :
+			{{ post.author }}</p>
+		<p>Date :
+			{{ post.createdAt|date('d/m/Y') }}
+		</p>
+		<div class="  ">
+			{{ post.content }}
+		</div>
+
+		<div class="mt-8">
+			<a href="" class="btn btn-primary">Modifier</a>
+			<a href="{{ path('app_delete', { 'id':post.id })}}" class="btn btn-error">Supprimer</a>
+		</div>
+	</div>
+
+{% endblock %}

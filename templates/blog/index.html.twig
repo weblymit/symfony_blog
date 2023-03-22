@@ -4,14 +4,24 @@
 {% endblock %}
 
 {% block body %}
-	<?php 
-    $toni = 5;
-?>
 	<div class="example-wrapper p-20">
 		<h1 class="text-green-500 text-3xl">Nos derniers articles</h1>
-		{% include 'partials/_card.html.twig' %}
-
-		{# {% include 'components/card.html.twig' with {'title': post.title, 'content': post.content}|raw %} #}
+		<div class=" min-h-screen py-32 px-10 ">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 ">
+				{% for post in posts %}
+					{{ include('partials/_card.html.twig', 
+                    {
+											'id': post.id,
+											'title':post.title, 
+											'content':post.content,
+											'image':post.urlImg
+										}
+                    ) 
+                    }}
+				{% endfor %}
+			</div>
+		</div>
+		{# {% include 'partials/_card.html.twig' %} #}
 
 	</div>
 {% endblock %}

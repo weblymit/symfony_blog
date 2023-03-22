@@ -32,6 +32,9 @@ class Post
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updated_at = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $author = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +108,18 @@ class Post
     public function setUpdatedAt(?\DateTimeImmutable $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(string $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }
