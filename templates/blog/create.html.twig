@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="example-wrapper">
+		<h1 class="text-2xl text-blue-800 pb-8 font-bold">Create Post</h1>
+
+		<!-- 1: methode 1 -->
+		{# {{ form(form) }} #}
+
+		<!-- 1: methode 2 -->
+
+
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		<input type="submit" value="Envoyer" class="btn btn-secondary"> {{ form_end(form) }}
+
+	</div>
+{% endblock %}
