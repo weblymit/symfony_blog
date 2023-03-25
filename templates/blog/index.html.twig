@@ -4,24 +4,29 @@
 {% endblock %}
 
 {% block body %}
-	<div class="example-wrapper p-20">
-		<h1 class="text-green-500 text-3xl">Nos derniers articles</h1>
-		<div class=" min-h-screen py-32 px-10 ">
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 ">
-				{% for post in posts %}
-					{{ include('partials/_card.html.twig', 
-                    {
-											'id': post.id,
-											'title':post.title, 
-											'content':post.content,
-											'image':post.urlImg
-										}
-                    ) 
-                    }}
-				{% endfor %}
-			</div>
+<div class="example-wrapper py-10">
+	<h1 class="text-green-500 text-3xl">Nos derniers articles ({{ posts|length }})</h1>
+	<div class=" min-h-screen py-32 px-10 ">
+		{# {% if posts|length > 0 %} #}
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 ">
+			{% for post in posts %}
+			{{ include('partials/_card.html.twig', 
+											{
+												'id': post.id,
+												'title':post.title, 
+												'content':post.content,
+												'image':post.urlImg
+											}
+											) 
+											}}
+			{% else %}
+			<p>Pas de post</p>
+			{% endfor %}
 		</div>
-		{# {% include 'partials/_card.html.twig' %} #}
-
+		{# {% else %} #}
+		{# <p>Pas de post</p> #}
+		{# {% endif %} #}
 	</div>
+	{# {% include 'partials/_card.html.twig' %} #}
+</div>
 {% endblock %}

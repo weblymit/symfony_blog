@@ -2,3 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .title {
+    @apply text-blue-500 font-black text-2xl;
+  }
+
+  .form {
+    @apply border border-gray-300 rounded w-full my-3;
+  }
+}
+

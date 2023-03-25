@@ -19,7 +19,9 @@
 	</head>
 	<body>
 		{% include "partials/_nav.html.twig" %}
-		<div class="p-20"> {% block body %}{% endblock %}
-			</div>
+		{% include "partials/_hero.html.twig" %}
+		<div class="p-20"> 
+			{% block body %}{% endblock %}
+		</div>
 		</body>
 	</html>
