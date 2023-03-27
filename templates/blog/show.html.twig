@@ -19,7 +19,7 @@
 		</div>
 
 		<div class="mt-8">
-			<a href="" class="btn btn-primary">Modifier</a>
+			<a href="{{ path('app_update', { 'id':post.id })}}" class="btn btn-primary">Modifier</a>
 			<a href="{{ path('app_delete', { 'id':post.id })}}" class="btn btn-error">Supprimer</a>
 		</div>
 	</div>

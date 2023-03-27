@@ -20,29 +20,43 @@ class PostFormType extends AbstractType
                     'class' => 'form',
                     'placeholder' => 'Titre du post...'
                 ],
-                'label' => "Titre de l'article"
+                'label' => "Titre de l'article",
+                // 'required' => false
             ])
             ->add('content', TextareaType::class, [
                 'attr' => [
                     'class' => 'form',
                     'placeholder' => 'Titre du post...'
                 ],
+                // 'required' => false
             ])
             ->add('category', TextType::class, [
                 'attr' => [
                     'class' => 'form',
                     'placeholder' => 'Titre du post...'
                 ],
+                // 'required' => false
+
             ])
-            ->add('url_img', FileType::class, [
-                'attr' => [
-                    'class' => 'formd',
-                    'placeholder' => 'Titre du post...'
-                ],
-            ])
+            // ->add('url_img', FileType::class, [
+            //     'attr' => [
+            //         'class' => 'formd',
+            //         'placeholder' => 'Titre du post...'
+            //     ],
+            // ])
             ->add('author', TextType::class, [
                 'attr' => [
                     'class' => 'form',
+                    'placeholder' => 'Titre du post...'
+                ],
+                // 'required' => false
+
+            ])
+            ->add('url_img', FileType::class, [
+                // 'required' => false,
+                'mapped' => false, //mapped => ne pas associer se champs a Entity manager
+                'attr' => [
+                    'class' => 'formd',
                     'placeholder' => 'Titre du post...'
                 ],
             ]);

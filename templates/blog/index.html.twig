@@ -22,11 +22,15 @@
 			{% else %}
 			<p>Pas de post</p>
 			{% endfor %}
+
 		</div>
 		{# {% else %} #}
 		{# <p>Pas de post</p> #}
 		{# {% endif %} #}
 	</div>
+	
+	{{ knp_pagination_render(posts) }}
+
 	{# {% include 'partials/_card.html.twig' %} #}
 </div>
 {% endblock %}
