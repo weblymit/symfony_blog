@@ -4,9 +4,12 @@
 	</div>
 	<div class="flex-none">
 		<ul class="menu menu-horizontal px-1">
+		{% if app.user %}
 			<li>
 				<a href="{{ path('app_create') }}">Create</a>
 			</li>
+		{% endif %}
+			
 			<li>
 				<a href="/{{ app.user ? 'logout': 'login' }}">
 					{{ app.user ? 'Déconnexion': 'Connexion' }}

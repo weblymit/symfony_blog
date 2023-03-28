@@ -129,13 +129,13 @@ class BlogController extends AbstractController
 			if ($imagePath) {
 				// verifie que l'image existe et qu'il n'est pas vide
 				if ($post->getUrlImg() !== null) {
-					if (file_exists($racineSite . $post->getUrlImg())) {
-						$racineSite . $post->getUrlImg();
-					}
+					// if (file_exists($racineSite . $post->getUrlImg())) {
+					// 	$racineSite . $post->getUrlImg();
+					// }
 					// new img name if same name image
 					$newFileName = uniqid() . '.' . $imagePath->guessExtension();
 
-					// try de deplacer le fichier upload temporaire dans public/uploads
+					// deplacer le fichier upload  dans public/uploads
 					try {
 						$imagePath->move(
 							$this->getParameter('kernel.project_dir') . '/public/uploads',
@@ -144,7 +144,7 @@ class BlogController extends AbstractController
 					} catch (FileException $e) {
 						return new Response($e->getMessage());
 					}
-					// on set url_img => uploads/newnamefile
+					// on store le filename en BDD
 					$post->setUrlImg('/uploads/' . $newFileName);
 
 					$em->flush();
