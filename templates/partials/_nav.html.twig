@@ -8,8 +8,14 @@
 				<a href="{{ path('app_create') }}">Create</a>
 			</li>
 			<li>
-				<a>Item 3</a>
+				<a href="/{{ app.user ? 'logout': 'login' }}">
+					{{ app.user ? 'Déconnexion': 'Connexion' }}
+				</a>
 			</li>
+			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    						{{app.user.email}}
+
+			{% endif %}
 		</ul>
 	</div>
 </div>

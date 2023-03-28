@@ -4,11 +4,14 @@ namespace App\Form;
 
 use App\Entity\Post;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Blank;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PostFormType extends AbstractType
 {
@@ -21,6 +24,10 @@ class PostFormType extends AbstractType
                     'placeholder' => 'Titre du post...'
                 ],
                 'label' => "Titre de l'article",
+                // 'constraints' => [
+                //     new NotBlank(['message' => "obligatoire"]),
+                //     new Length(['min' => 3, 'minMessage' => 'Taille de titre minimum {{ limit }} characters ',])
+                // ]
                 // 'required' => false
             ])
             ->add('content', TextareaType::class, [

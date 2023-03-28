@@ -4,9 +4,10 @@
 <div class="example-wrapper">
 	<h1 class="title">Create Post</h1>
 	<!-- 1: methode 1 -->
-	{# {{ form(form) }} #}
+	{# {{ form(form) }} #} 
 
 	<!-- 1: methode 2 -->
+
 	<div class="max-w-sm mx-auto">
 		{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 		{{ form_widget(form) }}
@@ -15,5 +16,7 @@
 		</div>
 		{{ form_end(form) }}
 	</div>
+
 </div>
+
 {% endblock %}
